@@ -1,0 +1,148 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>LinkedIn</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+    <div id="app">React is not render yet</div>
+
+
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+
+        var Avatar = function (props) {
+            var picStyle = {
+                marginLeft: 20,
+                marginTop: 20,
+                height: 150,
+                width: 150,
+                borderRadius: "50%"
+            }
+            return (
+                <img src={props.img} alt="image" style={picStyle} />
+            )
+        }
+
+        var Name = function (props) {
+            var user = {
+                textAlign: "center",
+                marginBottom: 5
+            }
+            return (
+                <h2 style={user}>{props.name}</h2>
+            );
+        }
+
+        var iconStyle = {
+            margin: 20
+        }
+
+        var Phone = function () {
+
+            return (
+                <i className="fa fa-phone" aria-hidden="true" style={iconStyle}></i>
+            );
+        }
+
+        var Mail = function () {
+            return (
+
+                <i className="fa fa-envelope" aria-hidden="true" style={iconStyle}></i>
+
+            );
+        }
+
+        var Insta = function () {
+            return (
+                <i className="fa fa-instagram" aria-hidden="true" style={iconStyle}></i>
+            );
+        }
+
+        var GetConnected = function () {
+
+            var getStyle = {
+                marginLeft: 18,
+            }
+            return (
+                <div style={getStyle}>
+                    <Phone />
+                    <Mail />
+                    <Insta />
+                </div>
+            )
+        }
+
+        var Linkdin = function (props) {
+
+
+            var profile = props.data.map(function (element) {
+
+                var linkStyle = {
+                    height: 280,
+                    width: 200,
+                    padding: 0,
+                    backgroundColor: "#FFF",
+                    WebkitFilter: "drop-shadow(0px 0px 5px #555)",
+                    filter: "drop-shadow(0px 0px 5px #555)",
+                    display: "inline-block",
+                    margin: 10
+
+                }
+
+                return (
+                    <div style={linkStyle} key={element.name}>
+                        <Avatar img={element.img} />
+                        <Name name={element.name} />
+                        <GetConnected />
+                    </div>
+                )
+            });
+            return (
+                <div>
+                    {profile}
+                </div>
+
+            );
+        }
+
+        var details = [
+            { img: "https://e0.pxfuel.com/wallpapers/793/711/desktop-wallpaper-johnny-sins-doctor-teacher-plumber-deliveryman-preacher-johnny-bhaiya-dentist-yoga-businessman-everything-astronaut-firefighter-cop-army-culprit-johnny-sins.jpg", name: "Johnny" },
+            { img: "https://static.toiimg.com/thumb/msid-95657179,width-1280,resizemode-4/95657179.jpg", name: "Nora" },
+            { img: "https://e0.pxfuel.com/wallpapers/317/949/desktop-wallpaper-wall-hit-mia-khalifa.jpg", name: "Mia" },
+            { img: "https://c8.alamy.com/comp/D69Y1T/lisa-ann-2011-exxxotica-expo-held-at-the-new-jersey-convention-and-D69Y1T.jpg", name: "Lisa" },
+            { img: "https://i0.wp.com/globalzonetoday.com/wp-content/uploads/2020/06/Dani-Daniels-XX.jpg?fit=853%2C1181&amp;ssl=1.jpg", name: "Dani" },
+            { img: "https://pbs.twimg.com/media/Diii3mmWsAAtU2M.jpg", name: "Adam" },
+            { img: "https://m.media-amazon.com/images/M/MV5BYTU5ZWJhZDctNGZlOS00NjRjLWFiNGMtNDU0NmIwNTM1Y2ViXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_FMjpg_UX1000_.jpg", name: "Jordi" },
+        ];
+
+        // RENDER REACT TO THE DOM - WILL ACCEPT TWO ARGUMENTS (REACT WHAT, REACT WHERE)
+        ReactDOM.render(
+
+            // REACT - WHAT - JSX
+            <div>
+                <Linkdin data={details} />
+            </div>,
+
+            // REACT - WHERE - DIV WITH ID OF "APP"
+            document.getElementById("app"));
+    </script>
+
+</body>
+
+</html>

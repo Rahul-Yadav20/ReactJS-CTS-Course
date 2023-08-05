@@ -1,0 +1,123 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>LinkedIn</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+    <div id="app">React is not render yet</div>
+
+
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+        
+        var Avatar = function () {
+            var picStyle = {
+                marginLeft: 20,
+                marginTop: 20,
+                height: 150,
+                width: 150,
+                borderRadius: "50%"
+            }
+            return (
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Dwayne_Johnson_2014_%28cropped%29.jpg" alt="image" style={picStyle} />
+            )
+        }
+
+        var Name = function () {
+            var user = {
+                textAlign: "center",
+                marginBottom: 5
+            }
+            return (
+                <h2 style={user}>Vansh Yadav</h2>
+            );
+        }
+
+        var iconStyle = {
+            margin: 20
+        }
+
+        var Phone = function () {
+
+            return (
+                <i className="fa fa-phone" aria-hidden="true" style={iconStyle}></i>
+            );
+        }
+
+        var Mail = function () {
+            return (
+                
+                    <i className="fa fa-envelope" aria-hidden="true" style={iconStyle}></i>
+                
+            );
+        }
+
+        var Insta = function () {
+            return (
+                <i className="fa fa-instagram" aria-hidden="true" style={iconStyle}></i>
+            );
+        }
+
+        var GetConnected = function () {
+
+            var getStyle = {
+                marginLeft: 18,
+            }
+            return (
+                <div style={getStyle}>
+                    <Phone />
+                    <Mail />
+                    <Insta />
+                </div>
+            )
+        }
+
+        var Linkdin = function () {
+            var linkStyle = {
+                height: 280,
+                width: 200,
+                padding: 0,
+                backgroundColor: "#FFF",
+                WebkitFilter: "drop-shadow(0px 0px 5px #555)",
+                filter: "drop-shadow(0px 0px 5px #555)",
+            }
+            return (
+                <div style={linkStyle}>
+                    <Avatar/>
+                    <Name/>
+                    <GetConnected />
+                </div>
+
+            );
+        }
+        // RENDER REACT TO THE DOM - WILL ACCEPT TWO ARGUMENTS (REACT WHAT, REACT WHERE)
+        ReactDOM.render(
+            // REACT WHAT - JSX
+            <div>
+                <Linkdin/>
+            </div>
+            ,
+            // REACT WHERE - DIV WITH ID OF "APP"
+            document.getElementById("app"));
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Stying React</title>
+</head>
+
+<body>
+
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+    <div id="app">React is not rendering</div>
+
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+
+        // There is lots of redundant code
+        // Thats why props introduce to resolve the problem
+
+        // var Fruits = function() {
+        //     return(
+        //         <div>
+        //             <Apple />
+        //             <Banana />
+        //             <Graps />
+        //             <Kiwi />
+        //         </div>
+        //     );
+        // }
+
+        // var Apple = function () {
+
+        //     var color = {
+        //         height: 50,
+        //         width: 100,
+        //         backgroundColor: "red"
+        //     }
+
+        //     return (
+        //         <h2 style={color}>Apple</h2>
+        //     );
+        // }
+
+        // var Kiwi = function () {
+        //     var color = {
+        //         height: 50,
+        //         width: 100,
+        //         backgroundColor: "green"
+        //     }
+        //     return (
+        //         <h2 style={color}>Kiwi</h2>
+        //     );
+        // }
+
+        // var Banana = function () {
+        //     var color = {
+        //         height: 50,
+        //         width: 100,
+        //         backgroundColor: "yellow"
+        //     }
+        //     return (
+        //         <h2 style={color}>Banana</h2>
+        //     );
+        // }
+
+        // var Graps = function () {
+        //     var color = {
+        //         height: 50,
+        //         width: 100,
+        //         backgroundColor: "aqua"
+        //     }
+        //     return (
+        //         <h2 style={color}>Graps</h2>
+        //     );
+        // }
+
+        var Fruits = function (props) {
+            var colorStyle = {
+                height: 50,
+                width: 200,
+                backgroundColor: props.color,
+                padding: 20
+            }
+            return (
+                <h1 style={colorStyle}>{props.fruitName}</h1>
+            );
+        }
+
+        ReactDOM.render(
+            // React - What
+            // We have written too many components for different fruits
+            // But using props, we can do this using single component
+            <div>
+                <Fruits color="tomato" fruitName="Santara" />
+                <Fruits color="green" fruitName="Graps" />
+                <Fruits color="red" fruitName="Anar" />
+                <Fruits color="aqua" fruitName="Kiwi" />
+            </div>,
+            // React - Where
+            document.getElementById("app")
+        );
+    </script>
+
+
+
+</body>
+
+</html>

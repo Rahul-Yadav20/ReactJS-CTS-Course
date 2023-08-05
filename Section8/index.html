@@ -1,0 +1,100 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <!-- Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Bootstrap  JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <title>Stying React</title>
+</head>
+
+<body>
+
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+    <div id="app">React is not rendering</div>
+
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+
+
+        // USIGN CLASS
+        // class Note extends React.Component {
+
+        //     editNote() {
+        //         return alert("This will edit the note");
+        //     }
+
+        //     deleteNote() {
+        //         return alert("This will delete the note");
+        //     }
+
+        //     render() {
+
+        //       return (
+        //             <div>
+        //                 <h1>Uselss Note Tacker</h1>
+        //                 <button type="button" className="btn btn-primary rounded-pill mx-2" onClick={this.editNote}>Edit Note</button>
+        //                 <button type="button" className="btn btn-outline-success rounded-pill mx-2" onClick={this.deleteNote}>Delete Note</button>
+        //             </div>
+        //         )
+        //     }
+        // }
+
+        // USING FUNCTION
+        var Note = () => {
+            const handleEdit = () => {
+                return (
+                    alert("Note is edited..")
+                )
+            }
+
+            const handleDelete = () => {
+                return (
+                    alert("Note is deleted..")
+                )
+            }
+
+            const handleCreate = () => {
+                return (
+                    alert("New Note is created..")
+                )
+            }
+            return (
+                <div className="m-5">
+                    <h1 >Useless Note Tracker</h1>
+                    <button type="button" className="btn btn-primary mx-2" onClick={handleEdit}>Edit</button>
+                    <button type="button" className="btn btn-danger mx-2" onClick={handleDelete}>Delete</button>
+                    <button type="button" className="btn btn-success mx-2" onMouseOver={handleCreate}>New Note with Mouse Over</button>
+                    
+                </div>
+            )
+        }
+
+        ReactDOM.render(
+            // React - What
+            <Note />
+            ,
+            // React - Where
+            document.getElementById("app")
+        );
+    </script>
+
+
+
+</body>
+
+</html>

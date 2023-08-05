@@ -1,0 +1,94 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Map</title>
+</head>
+
+<body>
+
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+    <div id="app">React has not rendered yet</div>
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+        // Array of object
+        // Map method doesn't remove the
+        var weather = [
+            { day: "monday", sunny: true, humidity: 100 },
+            { day: "tuesday", sunny: false, humidity: 25 },
+            { day: "wednesday", sunny: false, humidity: 40 },
+            { day: "friday", sunny: true, humidity: 15 },
+            { day: "saturday", sunny: false, humidity: 80 },
+            { day: "sunday", sunny: true, humidity: 60 },
+        ];
+
+        // var humid = [];
+        // Using for loop
+        // for (let i = 0; i < weather.length; i++) {
+        //     if (!(weather[i].sunny)) {
+        //         humid.push(weather[i].humidity);
+        //     }
+        // }
+        // console.log(humid);
+
+        // Using Map 
+        var humid = weather.map(function (element) {
+            return element.humidity;
+        }
+        );
+        console.log(humid);
+
+
+        // Another Example
+        var ar = [10, 23, 40, 20];
+        var Nar = ar.map(function(currentElement){
+            return 5 * currentElement;
+        })
+        console.log(Nar);
+
+
+        //Another Exammple
+        // Only first letter in Uppar Case
+        var greet1 = ['hi', 'hello', 'hey', 'thanks'];
+        var UpGreet1 = greet1.map(function(currentElement){
+            return (currentElement[0].toUpperCase() + currentElement.slice(1));
+        });
+        console.log(UpGreet1);
+
+        // All letters in uppar case
+        var greet2 = ['hi', 'hello', 'hey', 'thanks'];
+        var UpGreet2 = greet2.map(function(currentElement){
+            return (currentElement.toUpperCase());
+        });
+        console.log(UpGreet2);
+
+
+
+        ReactDOM.render(
+
+            // using props we simply pass different names to Person component
+            // Otherwise we have create multiple components for multiple person name
+            <h1>
+                See OUTPUT in Console
+            </h1>,
+            document.getElementById("app")
+        );
+
+        
+
+
+    </script>
+
+</body>
+
+</html>

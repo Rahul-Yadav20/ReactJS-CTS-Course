@@ -1,0 +1,93 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Filter</title>
+</head>
+
+<body>
+
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+    <div id="app">React has not rendered yet</div>
+
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+        var arr = [75, 23, 56, 10, 45, 60];
+        // USING for loop
+        // Too many lines of code and complex 
+        // var newArray = [];
+        // for (let i = 0; i < arr.length; i++) {
+        //     if (arr[i] > 30) {
+        //         newArray.push(arr[i]);
+        //     }
+
+        // }
+        // console.log(newArray);
+
+
+
+        // USING filter Function
+        // Simple in use 
+        // var filterArray = function (element) {
+        //     return element > 30;
+        // }
+        // var arrFilter = arr.filter(filterArray);
+        // console.log(arrFilter);
+
+        // OR
+        var arrFilter = arr.filter(function (element) {
+            return element > 30;
+        });
+        console.log(arrFilter);
+        
+        // Filter with Array of object
+        var weather = [
+            {day: "monday", sunny: true},
+            {day: "tuesday", sunny: false},
+            {day: "wednesday", sunny: false},
+            {day: "friday", sunny: true},
+            {day: "saturday", sunny: false},
+            {day: "sunday", sunny: true},
+        ];
+
+        var sunWeather = [];
+        // Using for loop
+        // for (let i = 0; i < weather.length; i++) {
+        //     if(weather[i].sunny){
+        //         sunWeather.push(weather[i].day);
+        //     }
+            
+        // }
+        // console.log(sunWeather);
+
+        // Using filter 
+        var sunnyDay = weather.filter(function(element) {
+            return element.sunny;
+        }
+        );
+        console.log(sunnyDay);
+        ReactDOM.render(
+
+            // using props we simply pass different names to Person component
+            // Otherwise we have create multiple components for multiple person name
+            <h1>
+                See OUTPUT in Console
+            </h1>,
+            document.getElementById("app")
+        );
+
+    </script>
+
+</body>
+
+</html>

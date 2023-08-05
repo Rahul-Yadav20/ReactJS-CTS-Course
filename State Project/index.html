@@ -1,0 +1,94 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <!-- Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Bootstrap  JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <title>Meal Voter</title>
+</head>
+
+<body>
+
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+    <div id="app">React is not render yet</div>
+
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+
+        class Dinner extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    total: 0
+                };
+                this.handleAdd = this.handleAdd.bind(this);
+                this.handleRemove = this.handleRemove.bind(this);
+            }
+            handleAdd() {
+                this.setState({
+                    total: this.state.total + this.props.price
+                })
+            }
+
+            handleRemove() {
+                this.setState({
+                    total: this.state.total - this.props.price
+                })
+            }
+            render() {
+
+                return (
+                    <div className="card bg-black text-white text-center d-inline-block m-5 border-2 border-danger" style={{ width: "18rem", webkitfilter: "drop-shadow(0px 0px 5px #555)", filter: "drop-shadow(0px 0px 5px #555)" }}>
+                        <div className="position-absolute">
+                            <span className="badge rounded-pill bg-info">{this.props.price}</span>
+                        </div>
+                        <img src={this.props.img} className="card-img-top" alt="image" />
+
+                        <div className="card-body">
+                            <h3 className="card-title ">{this.props.meal}</h3>
+                            <p className="mb-1">Add Meal Here to your Cart</p>
+                            <button type="button" className="btn btn-primary btn-sm  mb-2" onClick={this.handleAdd}>+1</button>
+                            <p className="mb-1">Remove Meal Here to your Cart</p>
+                            <button type="button" className="btn btn-danger btn-sm mb-2" onClick={(this.state.total <= 0) ? (this.state.total) :(this.handleRemove)}>-1</button>
+                            <p className="mt-4 mb-0"><strong>Total:</strong> {this.state.total}</p>
+
+                        </div>
+                    </div >
+
+                );
+
+            }
+
+        }
+
+        // RENDER REACT TO THE DOM - WILL ACCEPT TWO ARGUMENTS (REACT WHAT, REACT WHERE)
+        ReactDOM.render(
+            // REACT WHAT - JSX
+            <div>
+                <Dinner meal="Sandwich" price={59} img="https://img.freepik.com/free-photo/grilled-sandwich-with-bacon-fried-egg-tomato-lettuce-served-wooden-cutting-board_1150-42571.jpg?w=2000" />
+                <Dinner meal="Pizza" price={149} img="https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg?w=2000" />
+                <Dinner meal="Burger" price={99} img="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YnVyZ2VyfGVufDB8fDB8fHww&w=1000&q=80.jpg" />
+            </div>,
+            // REACT WHERE - DIV WITH ID OF "APP"
+            document.getElementById("app"));
+
+    </script>
+
+</body>
+
+</html>

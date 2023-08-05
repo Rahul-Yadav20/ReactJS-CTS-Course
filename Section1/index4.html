@@ -1,0 +1,63 @@
+<!-- INSERT BOILER PLATE CODE -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>ES6 vs ES5</title>
+</head>
+
+<body>
+
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
+    <div id="app">React is not working yet!</div>
+
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+
+        // ES6
+        // This is ES6 code (and babel convert it into ES5 so that browser can understand it)
+        // RENDER REACT TO THE DOM - WILL ACCEPT TWO ARGUMENTS (REACT WHAT, REACT WHERE)
+        // ReactDOM.render(
+        //     //React What - Div with app ID
+        //      <h2>Hello world!</h2>, 
+        //     //React Where- DIV with is APP
+        //     document.getElementById("app")
+        // );
+
+        //ES5
+        // This is ES5 code and more complex to understand
+        // ReactDOM.render(
+        //     /*#__PURE__*/
+        //     //This doesn't work (React redner only one element at a time)
+        //     React.createElement("h1", null, "Hello world!"),
+        //     //React Where- DIV with is APP
+        //     document.getElementById("app"));
+
+
+        // ES5 code for multiple elements
+        ReactDOM.render(
+            /*#__PURE__*/
+            //React What - Div with app ID
+            // Put all child element in one div
+            React.createElement(
+                "div", 
+                null, 
+                /*#__PURE__*/React.createElement("h2", null, "Hello world!"), 
+                /*#__PURE__*/React.createElement("p", null, "This is para")),
+                //React Where- DIV with is APP
+                document.getElementById("app"));
+
+    </script>
+
+</body>
+
+</html>
